@@ -9,7 +9,12 @@ A simple yet **clean and polished** To-Do List web application built with **Djan
 You can **add new tasks** and **mark them as complete** with a smooth, minimal UI.
 
 ---
+## 🚀 Live Demo
 
+Check out the live version of this app hosted on PythonAnywhere:  
+👉 [Django To-Do App](https://hakku.pythonanywhere.com)
+
+---
 ## ✨ Features
 
 - ➕ Add new tasks easily  
