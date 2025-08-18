@@ -1,0 +1,47 @@
+{% extends 'todo_app/base.html' %} 
+{% block title %} Tasks {% endblock%} 
+{%block content %}
+
+<div class="tasksbtn">
+  <a href="{% url 'newtask' %}">add a task</a>
+  <a href="{% url 'completedtask' %}">view completed tasks</a>
+  <form action="{%url 'logout' %}" method="post">
+    {% csrf_token %}
+    <button type="submit">logout</button>
+  </form>
+</div>
+
+{% if messages %} 
+  {% for msg in messages %}
+    <div class="{{msg.tags}}">
+      <h2>{{msg}}</h2>
+    </div>
+  {%endfor%} 
+{% else %}
+
+<h2>All Tasks</h2>
+
+<form action="{% url 'home' %}" method="post">
+  {% csrf_token %}
+  <div class="task-list">
+    {% for task in tasks%}
+    <div class="task">
+      <label class="checkbox-container">
+        <div class="clickable-div">
+          <input
+            id="mycheckbox"
+            type="checkbox"
+            name="tasks"
+            value="{{task.id}}"
+          />
+          <span class="task-title">{{task.title}}</span>
+        </div>
+      </label>
+    </div>
+    {%endfor%}
+  </div>
+  <button type="submit" class="submit-btn">Delete Selected</button>
+</form>
+
+{% endif %} 
+{%endblock%}

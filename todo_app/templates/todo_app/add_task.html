@@ -1,0 +1,29 @@
+{% extends 'todo_app/base.html' %}
+
+{% block title %} Tasks {% endblock%}
+
+{% block content %} 
+<div class="tasksbtn">
+<a href="{% url 'home' %}">home</a> 
+<a href="{% url 'completedtask' %}">completed tasks</a>
+</div>
+
+<h2>Add Task </h2>
+
+{% if messages %} 
+  {% for msg in messages %}
+    <div class="{{msg.tags}}">
+      {{msg}}
+    </div>
+  {%endfor%} 
+{% endif %}
+
+<form action="{% url 'newtask' %}" method="post">
+    {% csrf_token %}
+    <div class="add-task">
+    <label for="addtask"></label>
+    <input type="text" name="newtask" id="addtask" placeholder="enter new task", autocomplete="off">
+    <button class="submit-btn" type="submit">Add Task</button>
+    </div>
+</form>
+{%endblock%}

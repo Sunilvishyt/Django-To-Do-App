@@ -1,0 +1,46 @@
+{% extends 'base.html' %}
+{% block title %} Tasks {% endblock%} 
+
+{%block content %}
+
+    {% if form.non_field_errors %}
+        <div class="error">
+            {% for error in form.non_field_errors %}
+            {{ error }}
+            {% endfor %}
+        </div>
+    {% endif %}
+
+{% if messages %}
+{% for msg in messages %}
+<div class="success">
+    {{msg}}
+</div>
+{% endfor %}
+{% endif %}
+
+<form method="post">
+    {% csrf_token %}
+    <div class="add-task"> 
+        {{ form.username }}
+        {{ form.password }} 
+        {% if form.username.errors or form.password.errors %}
+        <div class="error">
+            {{ form.username.errors }}
+            {{ form.password.errors }}
+        </div>
+        {% endif %}
+        <button type="submit">Login</button>
+    </div>
+</form>
+<br>
+
+<div class="tasksbtn">
+    <h2>Don't have an account?</h2>
+</div>
+
+<div class="tasksbtn">
+    <a href="{% url 'register' %}"> register here</a> 
+</div>
+
+{% endblock%} 

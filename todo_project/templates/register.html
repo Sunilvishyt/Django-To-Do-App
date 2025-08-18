@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+{% block title %} Tasks {% endblock%} 
+
+{%block content %}
+
+<form method="post">
+    {% csrf_token %}
+    <div class="add-task">
+        {{ form.username }} 
+        {{form.password1}}
+        {{form.password2}}
+        {% if form.username.errors or form.password1.errors or form.password2.errors %}
+        <div class="error">
+            {{ form.username.errors }}
+            {{ form.password1.errors }}
+            {{ form.password2.errors }}
+        </div>
+        {% endif %}
+    <button type="submit">Register</button>
+    </div>
+</form>
+
+<div class="tasksbtn">
+    <h2>Have an account?</h2>
+</div>
+
+<div class="tasksbtn">
+    <a href="{% url 'login' %}"> Login</a> 
+</div>
+
+{% endblock%} 
