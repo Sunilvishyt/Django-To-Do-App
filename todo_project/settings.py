@@ -1,6 +1,7 @@
 from pathlib import Path
 import os
 from django.urls import reverse_lazy
+from decouple import config
 
 LOGIN_REDIRECT_URL = reverse_lazy('home')
 LOGOUT_REDIRECT_URL = 'login'
@@ -9,15 +10,14 @@ LOGIN_URL = 'login'
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/5.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-stjbowuu6mjluo6ki%4a)z3869lhm4yuur15h^bp9d(bxrdov@'
+SECRET_KEY = config('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = config('DEBUG',default=False, cast=bool)
 
 ALLOWED_HOSTS = []
 
