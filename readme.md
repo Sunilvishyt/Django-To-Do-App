@@ -10,7 +10,7 @@ Now with **user authentication** — each user can register, log in, and manage 
 ---
 ## 🚀 Live Demo
 
-Check out the live version of this app v1.0 hosted on PythonAnywhere:  
+Check out the live latest version of this app v1.5.0 hosted on PythonAnywhere:  
 👉 [Django To-Do App](https://hakku.pythonanywhere.com)
 
 ---
@@ -18,6 +18,7 @@ Check out the live version of this app v1.0 hosted on PythonAnywhere:
 
 - 👤 **User Authentication** (Register & Login)
 - 🔒 Each user sees **only their own tasks**
+- 🔒 Passwords of the user are properly hashed and then stored in the DB.
 - ➕ Add new tasks easily  
 - ✅ Mark tasks as complete  
 - 🗑️ Delete tasks  
